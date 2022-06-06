@@ -56,39 +56,42 @@ const Details = (props: Props) => {
       </button>
       <div className="details__content">
         <img className="dContent__flag" src={flag} alt={`${name} flag`} />
-        <h1 className="dContent__country"> {name} </h1>
-
-        <div className="dContent__stats">
-          <p className="stat">
-            Natvie Name: <span className="value">{nativeName}</span>{" "}
-          </p>
-          <p className="stat">
-            Population: <span className="value">{stringedPopulation}</span>{" "}
-          </p>
-          <p className="stat">
-            Region: <span className="value">{region}</span>{" "}
-          </p>
-          <p className="stat">
-            Sub Region: <span className="value">{subregion}</span>{" "}
-          </p>
-          <p className="stat">
-            Capital: <span className="value">{capital}</span>{" "}
-          </p>
-        </div>
-
-        <div className="dContent__stats2">
-          <p>
-            Top Level Domain: <span className="value"> {topLevelDomain} </span>
-          </p>
-          <p>
-            Currenices: <span className="value"> {currencies[0].name} </span>
-          </p>
-          <p>Languages: {spreadLangs}</p>
-        </div>
-
-        <div className="dContent__borders">
-          <h2>Border Countries:</h2>
-          <div className="dcb__wrapper">{borderCountries}</div>
+        <div className="desktop__dContent">
+          <h1 className="dContent__country"> {name} </h1>
+          <div className="desktop__stats">
+            <div className="dContent__stats">
+              <p className="stat">
+                Natvie Name: <span className="value">{nativeName}</span>{" "}
+              </p>
+              <p className="stat">
+                Population: <span className="value">{stringedPopulation}</span>{" "}
+              </p>
+              <p className="stat">
+                Region: <span className="value">{region}</span>{" "}
+              </p>
+              <p className="stat">
+                Sub Region: <span className="value">{subregion}</span>{" "}
+              </p>
+              <p className="stat">
+                Capital: <span className="value">{capital}</span>{" "}
+              </p>
+            </div>
+            <div className="dContent__stats2">
+              <p>
+                Top Level Domain:{" "}
+                <span className="value"> {topLevelDomain} </span>
+              </p>
+              <p>
+                Currenices:{" "}
+                <span className="value"> {currencies[0].name} </span>
+              </p>
+              <p>Languages: {spreadLangs}</p>
+            </div>
+          </div>
+          <div className="dContent__borders">
+            <h2>Border Countries:</h2>
+            <div className="dcb__wrapper">{borderCountries}</div>
+          </div>
         </div>
       </div>
     </div>

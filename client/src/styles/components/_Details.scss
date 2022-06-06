@@ -1,4 +1,5 @@
 @use "../abstract/variables" as *;
+@use "../utils/breakpoints" as *;
 
 @mixin stats {
   display: grid;
@@ -7,12 +8,24 @@
   .value {
     font-weight: $thinFw;
   }
+
+  @include breakpoint(tablet) {
+    display: block;
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .details {
   width: 90%;
 
   background-color: $lightGrayBg;
+
+  @include breakpoint(tablet) {
+    width: 100%;
+  }
 
   &__back {
     display: flex;
@@ -26,11 +39,20 @@
 
     background-color: white;
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.495);
+
+    @include breakpoint(tablet) {
+      margin: 70px 0;
+    }
   }
 
   &__content {
-    width: 99%;
+    width: 100%;
     margin: 0 auto;
+
+    @include breakpoint(tablet) {
+      display: flex;
+      justify-content: space-between;
+    }
 
     .dContent {
       &__flag {
@@ -38,6 +60,11 @@
         height: 200px;
 
         object-fit: fill;
+
+        @include breakpoint(tablet) {
+          width: 50%;
+          height: 400px;
+        }
       }
 
       &__country {
@@ -45,6 +72,10 @@
 
         font-weight: $boldFw;
         font-size: $mdFz;
+
+        @include breakpoint(tablet) {
+          font-size: $xlFz;
+        }
       }
 
       &__stats {
@@ -54,14 +85,24 @@
       &__stats2 {
         @include stats;
         margin: 40px 0 30px;
+
+        @include breakpoint(tablet) {
+          margin: unset;
+        }
       }
 
       &__borders {
         margin: 20px 0;
 
+        @include breakpoint(tablet) {
+          display: flex;
+          align-items: center;
+
+          margin: 60px 0 0 0;
+        }
+
         .dcb__wrapper {
           display: flex;
-
           gap: 10px;
 
           .border {
@@ -81,9 +122,27 @@
             background-color: white;
             box-shadow: 2px 0px 10px rgba(192, 192, 192, 0.411);
             color: $darkText;
+
+            @include breakpoint(tablet) {
+              margin: unset;
+            }
           }
         }
       }
     }
+  }
+}
+
+.desktop__dContent {
+  @include breakpoint(tablet) {
+    width: 40%;
+  }
+}
+
+.desktop__stats {
+  @include breakpoint(tablet) {
+    display: flex;
+
+    margin: 40px 0;
   }
 }

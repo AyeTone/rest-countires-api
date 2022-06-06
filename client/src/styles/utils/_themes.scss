@@ -48,4 +48,25 @@
 
     box-shadow: 4px 0px 20px $shadow;
   }
+
+  .details {
+    color: $white;
+
+    &__back {
+      background-color: $darkBlue;
+      box-shadow: 0px 0px 10px $shadow;
+      color: $white;
+    }
+
+    &__content {
+      .dContent__borders {
+        .dcb__wrapper {
+          .border {
+            background-color: $darkBlue;
+            box-shadow: 2px 0px 10px $shadow;
+          }
+        }
+      }
+    }
+  }
 }

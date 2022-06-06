@@ -93,7 +93,7 @@ const Details = (props: Props) => {
             </div>
           </div>
           <div className="dContent__borders">
-            <h2>Border Countries:</h2>
+            <h2 className="dcb__title">Border Countries:</h2>
             <div className="dcb__wrapper">{borderCountries}</div>
           </div>
         </div>

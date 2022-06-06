@@ -16,7 +16,7 @@
   .search {
     &__input {
       background-color: $darkBlue;
-      box-shadow: 0px 10px 20px rgba(20, 20, 20, 0.317);
+      box-shadow: 0px 10px 20px $shadow;
 
       &::placeholder {
         color: $white;
@@ -33,12 +33,19 @@
       color: $white;
       .current {
         background-color: $darkBlue;
-        box-shadow: 2px 2px 20px rgba(20, 20, 20, 0.317);
+        box-shadow: 2px 2px 20px $shadow;
       }
 
       .options {
         background-color: $darkBlue;
       }
     }
+  }
+
+  .country {
+    background-color: $darkBlue;
+    color: $white;
+
+    box-shadow: 4px 0px 20px $shadow;
   }
 }

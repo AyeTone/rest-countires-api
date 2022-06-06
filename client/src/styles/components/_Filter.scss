@@ -1,15 +1,24 @@
 @use "../abstract/variables" as *;
+@use "../utils/breakpoints" as *;
 
 .filter {
   width: 100%;
   margin: 30px 0;
 
+  @include breakpoint(tablet) {
+    width: 19%;
+  }
+
   &__select {
     position: relative;
     width: 60%;
 
+    @include breakpoint(tablet) {
+      width: unset;
+    }
+
     .current {
-      padding: 25px;
+      padding: 20px;
       font-weight: $thinFw;
 
       background-color: white;
@@ -18,8 +27,8 @@
 
     .arrow {
       position: absolute;
-      top: 25px;
-      right: 25px;
+      top: 20px;
+      right: 10px;
 
       font-size: 20px;
     }

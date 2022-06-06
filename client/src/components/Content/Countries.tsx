@@ -64,8 +64,11 @@ const Countries = () => {
     <section className="countries">
       {!showDetails && (
         <>
-          <SearchBar />
-          <Filter /> {displayCountries}
+          <div className="desktop__search">
+            <SearchBar />
+            <Filter />
+          </div>
+          {displayCountries}
         </>
       )}
       {showDetails && selectedCountry}

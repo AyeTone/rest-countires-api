@@ -30,6 +30,8 @@
     align-items: center;
     gap: 8px;
 
+    cursor: pointer;
+
     @include breakpoint(tablet) {
       font-size: $mdFz;
     }

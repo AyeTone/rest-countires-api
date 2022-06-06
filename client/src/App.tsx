@@ -9,6 +9,7 @@ function App() {
   const [countries, setCountries] = useState<ICountry[] | []>([]);
   const [selectedRegion, setSelectedRegion] = useState("Filter by Region");
   const [userInput, setUserInput] = useState("");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     async function fetchData() {
@@ -27,9 +28,11 @@ function App() {
         setSelectedRegion,
         userInput,
         setUserInput,
+        theme,
+        setTheme,
       }}
     >
-      <div className="App">
+      <div className={`App ${theme}`}>
         <Navbar />
         <Content />
       </div>

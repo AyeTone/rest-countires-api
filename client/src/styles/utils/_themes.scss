@@ -1,0 +1,15 @@
+@use "../abstract/variables" as *;
+
+.light {
+  background-color: unset;
+}
+
+.dark {
+  .navbar {
+    background-color: $darkBlue;
+    &__theme,
+    &__title {
+      color: white;
+    }
+  }
+}

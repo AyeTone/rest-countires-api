@@ -29,7 +29,11 @@ const Details = (props: Props) => {
     let lastLang = i + 1 === languages.length;
     let { name } = lang;
 
-    return <span className="value">{!lastLang ? `${name}, ` : `${name}`}</span>;
+    return (
+      <span key={i} className="value">
+        {!lastLang ? `${name}, ` : `${name}`}
+      </span>
+    );
   });
 
   const borderCountries = borders.slice(0, 3).map((border: string, id) => {

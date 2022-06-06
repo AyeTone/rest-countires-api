@@ -68,7 +68,7 @@ const Countries = () => {
             <SearchBar />
             <Filter />
           </div>
-          {displayCountries}
+          <div className="desktop__countries">{displayCountries}</div>
         </>
       )}
       {showDetails && selectedCountry}

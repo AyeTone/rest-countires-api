@@ -19,3 +19,13 @@
     align-items: center;
   }
 }
+
+.desktop__countries {
+  width: 100%;
+
+  @include breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+  }
+}

@@ -1,7 +1,8 @@
 @use "../abstract/variables" as *;
+@use "../utils/breakpoints" as *;
 
 .country {
-  width: 90%;
+  width: 100%;
   margin: 20px 0;
 
   background-color: white;
@@ -9,11 +10,19 @@
 
   &__flag {
     width: 100%;
+
+    @include breakpoint(tablet) {
+      height: 175px;
+    }
   }
 
   &__content {
     padding: 30px;
     margin-bottom: 20px;
+
+    @include breakpoint(tablet) {
+      padding: 20px;
+    }
 
     .name {
       margin: 20px 0;

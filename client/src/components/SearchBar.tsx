@@ -3,11 +3,11 @@ import { HiOutlineSearch } from "react-icons/hi";
 import Context from "../Context/CountriesContext";
 
 const SearchBar = () => {
-  const { userInput, setUserInput, theme } = useContext(Context);
+  const { userInput, setUserInput } = useContext(Context);
 
   return (
     <form className="search">
-      <HiOutlineSearch className={`search__icon ${theme}`} />
+      <HiOutlineSearch className="search__icon" />
       <input
         value={userInput}
         className="search__input"

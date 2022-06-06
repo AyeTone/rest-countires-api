@@ -1,15 +1,44 @@
 @use "../abstract/variables" as *;
 
-.light {
-  background-color: unset;
-}
-
 .dark {
   .navbar {
     background-color: $darkBlue;
     &__theme,
     &__title {
-      color: white;
+      color: $white;
+    }
+  }
+
+  .content {
+    background-color: $darkBlueBg;
+  }
+
+  .search {
+    &__input {
+      background-color: $darkBlue;
+      box-shadow: 0px 10px 20px rgba(20, 20, 20, 0.317);
+
+      &::placeholder {
+        color: $white;
+      }
+    }
+
+    &__icon {
+      color: $white;
+    }
+  }
+
+  .filter {
+    &__select {
+      color: $white;
+      .current {
+        background-color: $darkBlue;
+        box-shadow: 2px 2px 20px rgba(20, 20, 20, 0.317);
+      }
+
+      .options {
+        background-color: $darkBlue;
+      }
     }
   }
 }

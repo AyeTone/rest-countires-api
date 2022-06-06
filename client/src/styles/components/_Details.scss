@@ -1,0 +1,89 @@
+@use "../abstract/variables" as *;
+
+@mixin stats {
+  display: grid;
+  gap: 20px;
+
+  .value {
+    font-weight: $thinFw;
+  }
+}
+
+.details {
+  width: 90%;
+
+  background-color: $lightGrayBg;
+
+  &__back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    float: left;
+
+    padding: 7px 20px;
+    margin: 30px 0;
+    border: none;
+
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.495);
+  }
+
+  &__content {
+    width: 99%;
+    margin: 0 auto;
+
+    .dContent {
+      &__flag {
+        width: 100%;
+        height: 200px;
+
+        object-fit: fill;
+      }
+
+      &__country {
+        margin: 40px 0 30px;
+
+        font-weight: $boldFw;
+        font-size: $mdFz;
+      }
+
+      &__stats {
+        @include stats;
+      }
+
+      &__stats2 {
+        @include stats;
+        margin: 40px 0 30px;
+      }
+
+      &__borders {
+        margin: 20px 0;
+
+        .dcb__wrapper {
+          display: flex;
+
+          gap: 10px;
+
+          .border {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+
+            padding: 10px 20px;
+            margin: 25px 0 40px;
+            flex: 1;
+
+            font-weight: $thinFw;
+            font-size: $smFz;
+            text-align: center;
+
+            background-color: white;
+            box-shadow: 2px 0px 10px rgba(192, 192, 192, 0.411);
+            color: $darkText;
+          }
+        }
+      }
+    }
+  }
+}

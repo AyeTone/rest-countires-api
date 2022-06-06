@@ -1,0 +1,5 @@
+@use "../abstract/variables" as *;
+
+body {
+  font-family: $baseFont;
+}

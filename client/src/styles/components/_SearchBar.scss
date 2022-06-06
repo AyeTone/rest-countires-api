@@ -1,0 +1,29 @@
+@use "../abstract/variables" as *;
+
+.search {
+  position: relative;
+
+  width: 100%;
+  margin: 10px 0;
+
+  &__input {
+    width: 100%;
+    padding: 15px;
+    padding-left: 70px;
+
+    border: none;
+    box-shadow: 0px 10px 10px rgba(128, 128, 128, 0.101);
+
+    &::placeholder {
+      color: rgba(168, 168, 168, 0.433);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 14px;
+    left: 30px;
+
+    color: grey;
+  }
+}

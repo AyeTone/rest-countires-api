@@ -1,0 +1,20 @@
+/* Variabels */
+@use "./abstract/variables";
+
+/* resets */
+@use "./reset/reset";
+
+/* base */
+@use "./base/body";
+
+/* components */
+@use "./components/Navbar";
+@use "./components/SearchBar";
+@use "./components/Content";
+@use "./components/Countries";
+@use "./components/Country";
+@use "./components/Filter";
+@use "./components/Details";
+
+/* utils */
+@use "./utils/breakpoints";

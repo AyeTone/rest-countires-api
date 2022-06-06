@@ -1,0 +1,27 @@
+/* Colors */
+// Dark Mode
+$darkBlue: hsl(209, 23%, 22%); /* Elements */
+$darkBlueBg: hsl(207, 26%, 17%); /* Background */
+
+// Light Mode
+$darkText: hsl(200, 15%, 8%); /* Text */
+$darkGray: hsl(0, 0%, 52%); /* Input */
+$lightGrayBg: hsl(0, 0%, 98%); /* Background */
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+$baseFont: “Nunito Sans“, sans-serif;
+
+/* Font Sizes */
+$baseFz: 1rem;
+$smFz: $baseFz * 0.75;
+$mdFz: $baseFz * 1.25;
+$lgFz: $baseFz * 1.5;
+$xlFz: $baseFz * 2;
+$xxlFz: $baseFz * 2.5;
+
+/* Font Weights */
+$baseFw: 400;
+$thinFw: 300;
+$semiFw: 600;
+$boldFw: 800;

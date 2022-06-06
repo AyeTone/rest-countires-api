@@ -1,0 +1,25 @@
+@use "../abstract/variables" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 10px;
+  padding: 40px 20px;
+
+  box-shadow: 0px 5px 10px rgba(128, 128, 128, 0.185);
+
+  &__title {
+    font-weight: $semiFw;
+  }
+
+  &__theme {
+    border: none;
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}

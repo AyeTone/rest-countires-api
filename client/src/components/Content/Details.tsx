@@ -36,10 +36,11 @@ const Details = (props: Props) => {
     let match = countries.filter((coun: ICountry) => {
       if (border === coun.alpha3Code) return coun.name;
     });
+    let name = match[0].name;
 
     return (
-      <p key={id} className="border">
-        {match[0].name}
+      <p onClick={() => toggleDetails(name)} key={id} className="border">
+        {name}
       </p>
     );
   });

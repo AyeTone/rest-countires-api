@@ -1,42 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import Content from "./components/Content/Content";
 import Navbar from "./components/Navbar";
-import axios from "axios";
 import Context from "./Context/CountriesContext";
-import ICountry from "./models/ICountry";
 
 function App() {
-  const [countries, setCountries] = useState<ICountry[] | []>([]);
-  const [selectedRegion, setSelectedRegion] = useState("Filter by Region");
-  const [userInput, setUserInput] = useState("");
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await axios.get("https://restcountries.com/v2/all");
-      setCountries(res.data);
-    }
-    fetchData();
-  }, []);
+  const { theme } = useContext(Context);
 
   return (
-    <Context.Provider
-      value={{
-        countries,
-        setCountries,
-        selectedRegion,
-        setSelectedRegion,
-        userInput,
-        setUserInput,
-        theme,
-        setTheme,
-      }}
-    >
-      <div className={`App ${theme}`}>
-        <Navbar />
-        <Content />
-      </div>
-    </Context.Provider>
+    <div className={`App ${theme}`}>
+      <Navbar />
+      <Content />
+    </div>
   );
 }
 

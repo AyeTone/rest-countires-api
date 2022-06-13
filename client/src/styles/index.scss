@@ -15,6 +15,7 @@
 @use "./components/Country";
 @use "./components/Filter";
 @use "./components/Details";
+@use "./components/Loading";
 
 /* utils */
 @use "./utils/breakpoints";

@@ -1,6 +1,10 @@
 @use "../abstract/variables" as *;
 
 .dark {
+  .loading {
+    color: $white;
+  }
+
   .navbar {
     background-color: $darkBlue;
     &__theme,

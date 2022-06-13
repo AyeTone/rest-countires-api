@@ -36,7 +36,7 @@ const Details = (props: Props) => {
     );
   });
 
-  const borderCountries = borders.slice(0, 3).map((border: string, id) => {
+  const borderCountries = borders?.slice(0, 3)?.map((border: string, id) => {
     let match = countries.filter((coun: ICountry) => {
       if (border === coun.alpha3Code) return coun.name;
     });

@@ -1,6 +1,8 @@
 @use "../abstract/variables" as *;
 @use "../utils/breakpoints" as *;
 
+/* Mixins */
+
 @mixin stats {
   display: grid;
   gap: 20px;
@@ -18,144 +20,149 @@
   }
 }
 
-.details {
-  width: 90%;
+/* CSS Start */
 
-  @include breakpoint(tablet) {
+.details__back-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  float: left;
+
+  padding: 7px 20px;
+  margin: 30px 0;
+  border: none;
+
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.495);
+
+  cursor: pointer;
+}
+
+.details__content {
+  width: 100%;
+  margin: 0 auto;
+
+  &--flag {
     width: 100%;
+    height: 200px;
+
+    object-fit: fill;
+  }
+}
+
+.details__desc--name {
+  margin: 40px 0 30px;
+
+  font-weight: $boldFw;
+  font-size: $mdFz;
+}
+
+.details__stats--primary {
+  @include stats;
+}
+
+.details__stats--secondary {
+  @include stats;
+  margin: 40px 0 30px;
+}
+
+.details__stats--value {
+  font-weight: $thinFw;
+}
+
+.details__borders {
+  margin: 20px 0;
+
+  &--title {
+    font-weight: $semiFw;
   }
 
-  &__back {
+  &--list {
     display: flex;
-    align-items: center;
     gap: 10px;
-    float: left;
+  }
 
-    padding: 7px 20px;
-    margin: 30px 0;
-    border: none;
-
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.495);
-
+  &--item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     cursor: pointer;
 
-    @include breakpoint(tablet) {
-      margin: 70px 0;
-    }
-  }
+    padding: 10px 20px;
+    margin: 25px 0 40px;
+    flex: 1;
 
-  &__content {
-    width: 100%;
+    font-weight: $thinFw;
+    font-size: $smFz;
+    text-align: center;
+
+    background-color: white;
+    box-shadow: 2px 0px 10px rgba(192, 192, 192, 0.411);
+  }
+}
+
+/* 
+
+        BREAKPOINTS
+
+*/
+
+@include breakpoint(tablet) {
+  .details {
     margin: 0 auto;
+    width: 98%;
+  }
 
-    @include breakpoint(tablet) {
-      display: flex;
-      justify-content: space-between;
-    }
+  .details__back-btn {
+    margin: 40px 0;
+  }
 
-    .dContent {
-      &__flag {
-        width: 100%;
-        height: 200px;
+  .details__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
 
-        object-fit: fill;
+    &--flag {
+      width: 50%;
+      height: 400px;
 
-        @include breakpoint(tablet) {
-          width: 50%;
-          height: 400px;
-        }
-      }
-
-      &__country {
-        margin: 40px 0 30px;
-
-        font-weight: $boldFw;
-        font-size: $mdFz;
-
-        @include breakpoint(tablet) {
-          font-size: $xlFz;
-        }
-      }
-
-      &__stats {
-        @include stats;
-      }
-
-      &__stats2 {
-        @include stats;
-        margin: 40px 0 30px;
-
-        @include breakpoint(tablet) {
-          margin: unset;
-        }
-      }
-
-      &__borders {
-        margin: 20px 0;
-
-        @include breakpoint(tablet) {
-          display: flex;
-          align-items: center;
-
-          margin: 60px 0 0 0;
-        }
-
-        .dcb {
-          &__title {
-            font-weight: $semiFw;
-
-            @include breakpoint(tablet) {
-              margin-right: 10px;
-            }
-          }
-
-          &__wrapper {
-            display: flex;
-            gap: 10px;
-
-            @include breakpoint(tablet) {
-              width: 45%;
-            }
-
-            .border {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              cursor: pointer;
-
-              padding: 10px 20px;
-              margin: 25px 0 40px;
-              flex: 1;
-
-              font-weight: $thinFw;
-              font-size: $smFz;
-              text-align: center;
-
-              background-color: white;
-              box-shadow: 2px 0px 10px rgba(192, 192, 192, 0.411);
-
-              @include breakpoint(tablet) {
-                margin: unset;
-
-                padding: 5px;
-              }
-            }
-          }
-        }
-      }
+      object-fit: contain;
+      box-shadow: 0 10px 80px 0 rgba(128, 128, 128, 0.495);
     }
   }
-}
 
-.desktop__dContent {
-  @include breakpoint(tablet) {
-    width: 40%;
+  .details__desc {
+    &--name {
+      font-size: $xlFz;
+    }
   }
-}
 
-.desktop__stats {
-  @include breakpoint(tablet) {
+  .details__stats--secondary {
+    margin: unset;
+  }
+
+  .details__borders {
+    display: flex;
+    align-items: center;
+
+    margin: 60px 0 0 0;
+
+    &--title {
+      margin-right: 10px;
+    }
+
+    &--list {
+      width: 45%;
+    }
+
+    &--item {
+      margin: unset;
+
+      padding: 5px;
+    }
+  }
+
+  .details__stats--tablet-view {
     display: flex;
 
     margin: 40px 0;

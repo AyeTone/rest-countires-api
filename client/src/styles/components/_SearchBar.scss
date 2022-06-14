@@ -1,36 +1,44 @@
 @use "../abstract/variables" as *;
 @use "../utils/breakpoints" as *;
 
-.search {
+.search-bar {
   position: relative;
 
   width: 100%;
   margin: 10px 0;
+}
 
-  @include breakpoint(tablet) {
+.search-bar__icon {
+  position: absolute;
+  top: 17px;
+  left: 25px;
+
+  color: rgba(142, 141, 141, 0.671);
+  font-size: $mdFz;
+}
+
+.search-bar__input {
+  width: 100%;
+  padding: 20px;
+  padding-left: 70px;
+
+  border: none;
+  box-shadow: 0px 10px 20px rgba(128, 128, 128, 0.101);
+  border-radius: 5px;
+
+  &::placeholder {
+    color: rgba(168, 168, 168, 0.433);
+  }
+}
+
+/* 
+
+      BREAKPOINTS
+
+*/
+
+@include breakpoint(tablet) {
+  .search-bar {
     width: 35%;
-  }
-
-  &__input {
-    width: 100%;
-    padding: 20px;
-    padding-left: 70px;
-
-    border: none;
-    box-shadow: 0px 10px 20px rgba(128, 128, 128, 0.101);
-    border-radius: 5px;
-
-    &::placeholder {
-      color: rgba(168, 168, 168, 0.433);
-    }
-  }
-
-  &__icon {
-    position: absolute;
-    top: 17px;
-    left: 25px;
-
-    color: rgba(142, 141, 141, 0.671);
-    font-size: $mdFz;
   }
 }

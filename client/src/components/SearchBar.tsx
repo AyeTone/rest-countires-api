@@ -6,11 +6,11 @@ const SearchBar = () => {
   const { userInput, setUserInput } = useContext(Context);
 
   return (
-    <form className="search">
-      <HiOutlineSearch className="search__icon" />
+    <form className="search-bar">
+      <HiOutlineSearch className="search-bar__icon" />
       <input
         value={userInput}
-        className="search__input"
+        className="search-bar__input"
         type="text"
         placeholder="Search for a country..."
         onChange={(e) => setUserInput(e.target.value.toLowerCase())}

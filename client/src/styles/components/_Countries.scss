@@ -6,20 +6,22 @@
   margin: 0 auto;
 }
 
-.desktop__search {
+.countries__search {
   width: 100%;
+}
 
-  @include breakpoint(tablet) {
+.countries__list {
+  width: 100%;
+}
+
+@include breakpoint(tablet) {
+  .countries__search {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-}
 
-.desktop__countries {
-  width: 100%;
-
-  @include breakpoint(tablet) {
+  .countries__list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;

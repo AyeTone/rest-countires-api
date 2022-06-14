@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, Suspense } from "react";
+import Loading from "./components/Loading";
 import Navbar from "./components/Navbar";
 import Context from "./Context/CountriesContext";
 
 const Countries = React.lazy(() => {
   return new Promise((resolve: any) => {
-    setTimeout(() => resolve(import("./components/Countries")), 4000);
+    setTimeout(() => resolve(import("./components/Countries")), 7000);
   });
 });
 
@@ -14,7 +15,9 @@ function App() {
   return (
     <div className={`App ${theme}`}>
       <Navbar />
-      <Countries />
+      <Suspense fallback={<Loading />}>
+        <Countries />
+      </Suspense>
     </div>
   );
 }

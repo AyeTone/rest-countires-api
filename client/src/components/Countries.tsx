@@ -61,18 +61,18 @@ const Countries = () => {
     });
 
   return (
-    <section className="countries">
+    <main className="countries">
       {!showDetails && (
         <>
-          <div className="desktop__search">
+          <div className="countries__search">
             <SearchBar />
             <Filter />
           </div>
-          <div className="desktop__countries">{displayCountries}</div>
+          <section className="countries__list">{displayCountries}</section>
         </>
       )}
       {showDetails && selectedCountry}
-    </section>
+    </main>
   );
 };
 

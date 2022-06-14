@@ -1,7 +1,7 @@
-import ICountry from "../../models/ICountry";
+import ICountry from "../models/ICountry";
 import { BsArrowLeft } from "react-icons/bs";
 import { useContext } from "react";
-import Context from "../../Context/CountriesContext";
+import Context from "../Context/CountriesContext";
 
 interface Props {
   country: ICountry;

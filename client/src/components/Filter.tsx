@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import Context from "../../Context/CountriesContext";
+import Context from "../Context/CountriesContext";
 
 const Filter = () => {
   const { selectedRegion, setSelectedRegion } = useContext(Context);

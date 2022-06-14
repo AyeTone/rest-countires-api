@@ -1,7 +1,12 @@
-import { useContext } from "react";
-import Content from "./components/Content/Content";
+import React, { useContext } from "react";
 import Navbar from "./components/Navbar";
 import Context from "./Context/CountriesContext";
+
+const Countries = React.lazy(() => {
+  return new Promise((resolve: any) => {
+    setTimeout(() => resolve(import("./components/Countries")), 4000);
+  });
+});
 
 function App() {
   const { theme } = useContext(Context);
@@ -9,7 +14,7 @@ function App() {
   return (
     <div className={`App ${theme}`}>
       <Navbar />
-      <Content />
+      <Countries />
     </div>
   );
 }

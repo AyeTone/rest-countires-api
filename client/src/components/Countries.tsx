@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import Context from "../../Context/CountriesContext";
+import Context from "../Context/CountriesContext";
 import Country from "./Country";
-import ICountry from "../../models/ICountry";
+import ICountry from "../models/ICountry";
 import Details from "./Details";
 import Filter from "./Filter";
-import SearchBar from "../SearchBar";
+import SearchBar from "./SearchBar";
 
 const Countries = () => {
   const { countries, selectedRegion, userInput } = useContext(Context);

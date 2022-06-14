@@ -63,16 +63,18 @@ const Countries = () => {
 
   return (
     <main className="countries">
-      {!showDetails && (
-        <>
-          <div className="countries__search">
-            <SearchBar />
-            <Filter />
-          </div>
-          <section className="countries__list">{displayCountries}</section>
-        </>
-      )}
-      {showDetails && selectedCountry}
+      <div className="countries__wrapper">
+        {!showDetails && (
+          <>
+            <div className="countries__search">
+              <SearchBar />
+              <Filter />
+            </div>
+            <section className="countries__list">{displayCountries}</section>
+          </>
+        )}
+        {showDetails && selectedCountry}
+      </div>
     </main>
   );
 };

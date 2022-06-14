@@ -1,23 +1,23 @@
 @use "../abstract/variables" as *;
 
 .dark {
-  .loading {
-    color: $white;
-  }
-
   .navbar {
     background-color: $darkBlue;
-    &__theme,
+    &__theme-btn,
     &__title {
       color: $white;
     }
   }
 
-  .content {
+  .loading {
+    color: $white;
+  }
+
+  .countries {
     background-color: $darkBlueBg;
   }
 
-  .search {
+  .search-bar {
     &__input {
       background-color: $darkBlue;
       box-shadow: 0px 10px 20px $shadow;
@@ -35,14 +35,14 @@
   .filter {
     &__select {
       color: $white;
-      .current {
+      &--current {
         background-color: $darkBlue;
         box-shadow: 2px 2px 20px $shadow;
       }
+    }
 
-      .options {
-        background-color: $darkBlue;
-      }
+    &__options {
+      background-color: $darkBlue;
     }
   }
 
@@ -56,21 +56,15 @@
   .details {
     color: $white;
 
-    &__back {
+    &__back-btn {
       background-color: $darkBlue;
       box-shadow: 0px 0px 10px $shadow;
       color: $white;
     }
 
-    &__content {
-      .dContent__borders {
-        .dcb__wrapper {
-          .border {
-            background-color: $darkBlue;
-            box-shadow: 2px 0px 10px $shadow;
-          }
-        }
-      }
+    &__borders--item {
+      background-color: $darkBlue;
+      box-shadow: 2px 0px 10px $shadow;
     }
   }
 }

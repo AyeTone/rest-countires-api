@@ -22,7 +22,7 @@ const Countries = () => {
             <Details key={id} toggleDetails={toggleDetails} country={country} />
           );
         }
-        return undefined;
+        return null;
       });
     } else setShowDetails(false);
   }
@@ -33,7 +33,7 @@ const Countries = () => {
 
       if (selectedRegion === "Filter by Region") return country;
       else if (selectedRegion === region) return country;
-      else return undefined;
+      else return null;
     })
 
     .filter((country: ICountry) => {
@@ -42,6 +42,7 @@ const Countries = () => {
 
       if (userInput === "") return country;
       else if (lowerCasedCountry.includes(userInput)) return country;
+      else return null;
     })
 
     .map((country: ICountry, id: number) => {

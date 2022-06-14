@@ -19,17 +19,18 @@ const Country = (props: Props) => {
   return (
     <div onClick={() => toggleDetails(name)} className="country">
       <img className="country__flag" src={flag} alt={`${name} flag`} />
-      <div className="country__content">
-        <h1 className="name"> {name} </h1>
-        <div className="stats">
-          <p className="stat">
-            Population: <span className="value">{stringedPopulation}</span>{" "}
+      <div className="country__desc">
+        <h1 className="country__desc--name"> {name} </h1>
+        <div className="country__stats">
+          <p className="country__stats--item">
+            Population:{" "}
+            <span className="country__stats--value">{stringedPopulation}</span>{" "}
           </p>
-          <p className="stat">
-            Region: <span className="value">{region}</span>{" "}
+          <p className="country__stats--item">
+            Region: <span className="country__stats--value">{region}</span>{" "}
           </p>
-          <p className="stat">
-            Capital: <span className="value">{capital}</span>{" "}
+          <p className="country__stats--item">
+            Capital: <span className="country__stats--value">{capital}</span>{" "}
           </p>
         </div>
       </div>

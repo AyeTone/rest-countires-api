@@ -10,40 +10,48 @@
   border-radius: 5px;
 
   cursor: pointer;
+}
 
-  &__flag {
-    width: 100%;
+.country__flag {
+  width: 100%;
 
-    object-fit: cover;
-    border-radius: 5px;
+  object-fit: cover;
+  border-radius: 5px;
+}
 
-    @include breakpoint(tablet) {
-      height: 175px;
-    }
+.country__desc {
+  padding: 24px;
+  margin-bottom: 20px;
+
+  &--name {
+    margin: 20px 0;
+
+    font-weight: $boldFw;
+    font-size: $mdFz;
+  }
+}
+
+.country__stats {
+  display: grid;
+  gap: 12px;
+
+  &--value {
+    font-weight: $thinFw;
+  }
+}
+
+/* 
+
+        BREAKPOINTS
+
+*/
+
+@include breakpoint(tablet) {
+  .country__flag {
+    height: 175px;
   }
 
-  &__content {
-    padding: 30px;
-    margin-bottom: 20px;
-
-    @include breakpoint(tablet) {
-      padding: 20px;
-    }
-
-    .name {
-      margin: 20px 0;
-
-      font-weight: $boldFw;
-      font-size: $mdFz;
-    }
-
-    .stats {
-      display: grid;
-      gap: 10px;
-
-      .value {
-        font-weight: $thinFw;
-      }
-    }
+  .country__desc {
+    padding: 20px;
   }
 }

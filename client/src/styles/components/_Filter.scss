@@ -3,67 +3,73 @@
 
 .filter {
   width: 100%;
-  margin: 30px 0;
+  margin: 32px 0;
+}
 
-  @include breakpoint(tablet) {
+.filter__select {
+  position: relative;
+  width: 60%;
+
+  &--current {
+    padding: 20px;
+    font-weight: $thinFw;
+
+    background-color: white;
+    box-shadow: 2px 2px 20px rgba(215, 215, 215, 0.586);
+    border-radius: 5px;
+
+    cursor: pointer;
+  }
+
+  &--arrow {
+    position: absolute;
+    top: 20px;
+    right: 12px;
+
+    font-size: 20px;
+  }
+}
+
+.filter__options {
+  position: absolute;
+  top: -10;
+  width: 100%;
+
+  padding: 25px;
+  margin-top: 10px;
+
+  display: grid;
+  gap: 10px;
+
+  background-color: white;
+  font-weight: $thinFw;
+
+  &--label:hover {
+    opacity: 0.4;
+    cursor: pointer;
+  }
+
+  &--radio {
+    display: none;
+  }
+}
+
+.selected {
+  display: none;
+}
+
+/* 
+
+      BREAKPOINTS
+
+*/
+
+@include breakpoint(tablet) {
+  .filter {
     width: 17%;
   }
 
-  &__select {
-    position: relative;
-    width: 60%;
-
-    @include breakpoint(tablet) {
-      width: unset;
-    }
-
-    .current {
-      padding: 20px;
-      font-weight: $thinFw;
-
-      background-color: white;
-      box-shadow: 2px 2px 20px rgba(215, 215, 215, 0.586);
-      border-radius: 5px;
-
-      cursor: pointer;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 20px;
-      right: 10px;
-
-      font-size: 20px;
-    }
-
-    .options {
-      position: absolute;
-      top: -10;
-      width: 100%;
-
-      padding: 25px;
-      margin-top: 10px;
-
-      display: grid;
-      gap: 10px;
-
-      background-color: white;
-      font-weight: $thinFw;
-
-      .option {
-        .label:hover {
-          opacity: 0.4;
-          cursor: pointer;
-        }
-
-        .radio {
-          display: none;
-        }
-      }
-
-      .selected {
-        display: none;
-      }
-    }
+  .filter__select {
+    width: unset;
   }
 }

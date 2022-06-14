@@ -18,18 +18,22 @@ const Filter = () => {
   const option = options.map((opt: string, id) => {
     return (
       <div
-        className={opt !== selectedRegion ? "option" : "option selected"}
+        className={
+          opt !== selectedRegion
+            ? "filter__options--item"
+            : "filter__options--item selected"
+        }
         key={id}
       >
         <label
           htmlFor={opt}
-          className="label"
+          className="filter__options--label"
           onClick={(e: any) => setSelectedRegion(e.target.htmlFor)}
         >
           {opt === "Filter by Region" ? "Reset" : opt}
         </label>
         <input
-          className="radio"
+          className="filter__options--radio"
           type="radio"
           name="options"
           id={opt}
@@ -45,10 +49,10 @@ const Filter = () => {
         onClick={() => setShowOptions((prev) => !prev)}
         className="filter__select"
       >
-        <p className="current">{selectedRegion}</p>
-        <MdKeyboardArrowDown className="arrow" />
+        <p className="filter__select--current">{selectedRegion}</p>
+        <MdKeyboardArrowDown className="filter__select--arrow" />
 
-        {showOptions && <div className="options">{option}</div>}
+        {showOptions && <div className="filter__options">{option}</div>}
       </div>
     </div>
   );

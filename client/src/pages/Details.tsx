@@ -40,6 +40,7 @@ const Details = () => {
   const borderCountries = borders?.slice(0, 3)?.map((border: string, id) => {
     let match = countries.filter((coun: ICountry) => {
       if (border === coun.alpha3Code) return coun.name;
+      else return null;
     });
     let name = match[0].name;
 
@@ -64,7 +65,7 @@ const Details = () => {
         return countryName === country.name && country;
       })
     );
-  }, [countryName]);
+  }, [countryName, countries]);
 
   return (
     <div className="details">

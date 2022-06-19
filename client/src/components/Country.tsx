@@ -7,11 +7,10 @@ interface Props {
   population: number;
   region: string;
   capital: string;
-  toggleDetails: Function;
 }
 
 const Country = (props: Props) => {
-  const { flag, name, population, region, capital, toggleDetails } = props;
+  const { flag, name, population, region, capital } = props;
   const navigate = useNavigate();
 
   const stringedPopulation = population

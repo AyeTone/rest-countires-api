@@ -1,31 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Context from "../Context/CountriesContext";
 import Country from "./Country";
 import ICountry from "../models/ICountry";
-import Details from "./Details";
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
 
 const Countries = () => {
   const { countries, selectedRegion, userInput } = useContext(Context);
-  const [showDetails, setShowDetails] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState<
-    JSX.Element | undefined
-  >();
-
-  function toggleDetails(name: string) {
-    if (name) {
-      setShowDetails(true);
-      countries.map((country: ICountry, id: number) => {
-        if (name === country.name) {
-          setSelectedCountry(
-            <Details key={id} toggleDetails={toggleDetails} country={country} />
-          );
-        }
-        return null;
-      });
-    } else setShowDetails(false);
-  }
 
   const displayCountries = countries
     .filter((country: ICountry) => {
@@ -56,7 +37,6 @@ const Countries = () => {
           region={region}
           capital={capital}
           population={population}
-          toggleDetails={toggleDetails}
         />
       );
     })
@@ -66,16 +46,11 @@ const Countries = () => {
   return (
     <main className="countries">
       <div className="countries__wrapper">
-        {!showDetails && (
-          <>
-            <div className="countries__search">
-              <SearchBar />
-              <Filter />
-            </div>
-            <section className="countries__list">{displayCountries}</section>
-          </>
-        )}
-        {showDetails && selectedCountry}
+        <div className="countries__search">
+          <SearchBar />
+          <Filter />
+        </div>
+        <section className="countries__list">{displayCountries}</section>
       </div>
     </main>
   );

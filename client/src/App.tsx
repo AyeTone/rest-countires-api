@@ -1,13 +1,10 @@
-import React, { useContext, Suspense } from "react";
-import Loading from "./components/Loading";
-import Navbar from "./components/Navbar";
-import Context from "./Context/CountriesContext";
+import React, { useContext } from "react";
 
-const Countries = React.lazy(() => {
-  return new Promise((resolve: any) => {
-    setTimeout(() => resolve(import("./components/Countries")), 7000);
-  });
-});
+import Context from "./Context/CountriesContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
+import Navbar from "./components/Navbar";
 
 function App() {
   const { theme } = useContext(Context);
@@ -15,9 +12,12 @@ function App() {
   return (
     <div className={`App ${theme}`}>
       <Navbar />
-      <Suspense fallback={<Loading />}>
-        <Countries />
-      </Suspense>
+      <Router>
+        <Routes>
+          <Route path="/rest-countries-api/" element={<Home />} />
+          <Route path="/rest-countries-api/:name" element={<Details />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

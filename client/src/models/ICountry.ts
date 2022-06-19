@@ -6,7 +6,7 @@ export default interface ICountry {
   region: string;
   capital: string;
   topLevelDomain: [];
-  currencies: [{ name: string | String[] }];
+  currencies: [{ name: String }];
   subregion: string;
   languages: [{ name: string }];
   flag: string;

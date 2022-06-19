@@ -59,7 +59,9 @@ const Countries = () => {
           toggleDetails={toggleDetails}
         />
       );
-    });
+    })
+
+    .slice(0, 12);
 
   return (
     <main className="countries">

@@ -22,6 +22,12 @@
 
 /* CSS Start */
 
+.details {
+  min-height: 87vh;
+  width: 100%;
+  padding: 4px 20px;
+}
+
 .details__back-btn {
   display: flex;
   align-items: center;
@@ -110,7 +116,7 @@
 @include breakpoint(tablet) {
   .details {
     margin: 0 auto;
-    width: 98%;
+    width: 100%;
   }
 
   .details__back-btn {
@@ -127,7 +133,6 @@
       height: 400px;
 
       object-fit: contain;
-
       background-color: transparent;
     }
   }

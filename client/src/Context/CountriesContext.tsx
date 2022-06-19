@@ -16,8 +16,8 @@ export function ContextProvider({ children }: Props) {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("https://restcountries.com/v2/all");
-      setCountries(res.data);
+      const { data } = await axios.get("https://restcountries.com/v2/all");
+      setCountries(data);
     }
     fetchData();
   }, []);

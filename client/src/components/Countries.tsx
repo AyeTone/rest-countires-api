@@ -62,6 +62,7 @@ const Countries = () => {
         {loading && <Skeletons />}
         <InfiniteScroll
           next={addMoreCountries}
+          style={{ overflow: "unset" }}
           hasMore={hasMore}
           dataLength={sliceAmount}
           loader={search ? null : <Skeletons />}

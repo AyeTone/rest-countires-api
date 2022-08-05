@@ -1,19 +1,18 @@
-import { useContext } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
-import Context from "../Context/CountriesContext";
+import { useCountriesContext } from "../Context/CountriesContext";
 
 const SearchBar = () => {
-  const { userInput, setUserInput } = useContext(Context);
+  const { search, updateSearch } = useCountriesContext();
 
   return (
     <form className="search-bar">
       <HiOutlineSearch className="search-bar__icon" />
       <input
-        value={userInput}
+        value={search}
         className="search-bar__input"
         type="text"
         placeholder="Search for a country..."
-        onChange={(e) => setUserInput(e.target.value.toLowerCase())}
+        onChange={(e) => updateSearch(e.target.value.toLowerCase())}
       />
     </form>
   );

@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
-import Context from "../Context/CountriesContext";
+import { useCountriesContext } from "../Context/CountriesContext";
 import ICountry from "../models/ICountry";
 
 const Details = () => {
   const { name: countryName } = useParams();
-  const { countries } = useContext(Context);
+  const { countries } = useCountriesContext();
   const [country, setCountry] = useState([{} as ICountry]);
   const navigate = useNavigate();
   const [

@@ -1,19 +1,8 @@
-import { useContext } from "react";
 import { BsMoon, BsFillMoonFill } from "react-icons/bs";
-import Context from "../Context/CountriesContext";
+import { useThemeContext } from "../Context/ThemeContext";
 
 const Navbar = () => {
-  const { theme, setTheme } = useContext(Context);
-
-  function changeTheme() {
-    setTheme((prev: string) => {
-      if (prev === "light") {
-        return (prev = "dark");
-      } else {
-        return (prev = "light");
-      }
-    });
-  }
+  const { theme, changeTheme } = useThemeContext();
 
   return (
     <nav className="navbar">

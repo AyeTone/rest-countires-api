@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
-
-import Context from "./Context/CountriesContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Navbar from "./components/Navbar";
+import { useThemeContext } from "./Context/ThemeContext";
 
 function App() {
-  const { theme } = useContext(Context);
+  const { theme } = useThemeContext();
 
   return (
     <div className={`App ${theme}`}>

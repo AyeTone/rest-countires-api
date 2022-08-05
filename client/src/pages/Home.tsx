@@ -1,17 +1,9 @@
-import React, { Suspense } from "react";
-import Loading from "../components/Loading";
-const Countries = React.lazy(() => {
-  return new Promise((resolve: any) => {
-    setTimeout(() => resolve(import("../components/Countries")), 2000);
-  });
-});
+import Countries from "../components/Countries";
 
 const Home = () => {
   return (
     <div>
-      <Suspense fallback={<Loading />}>
-        <Countries />
-      </Suspense>
+      <Countries />
     </div>
   );
 };

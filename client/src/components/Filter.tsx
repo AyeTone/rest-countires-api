@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import Context from "../Context/CountriesContext";
+import { useCountriesContext } from "../Context/CountriesContext";
 
 const Filter = () => {
-  const { selectedRegion, setSelectedRegion } = useContext(Context);
-  const [showOptions, setShowOptions] = useState(false);
+  const {
+    selectedRegion,
+    changeSelectedRegion,
+    toggleShowRegions,
+    showRegions,
+  } = useCountriesContext();
 
   const options = [
     "Filter by Region",
@@ -28,7 +31,7 @@ const Filter = () => {
         <label
           htmlFor={opt}
           className="filter__options--label"
-          onClick={(e: any) => setSelectedRegion(e.target.htmlFor)}
+          onClick={(e: any) => changeSelectedRegion(e.target.htmlFor)}
         >
           {opt === "Filter by Region" ? "Reset" : opt}
         </label>
@@ -45,14 +48,11 @@ const Filter = () => {
 
   return (
     <div className="filter">
-      <div
-        onClick={() => setShowOptions((prev) => !prev)}
-        className="filter__select"
-      >
+      <div onClick={toggleShowRegions} className="filter__select">
         <p className="filter__select--current">{selectedRegion}</p>
         <MdKeyboardArrowDown className="filter__select--arrow" />
 
-        {showOptions && <div className="filter__options">{option}</div>}
+        {showRegions && <div className="filter__options">{option}</div>}
       </div>
     </div>
   );

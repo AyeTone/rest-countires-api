@@ -2,15 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { ContextProvider } from "./Context/CountriesContext";
+import { CountriesContextProvider } from "./Context/CountriesContext";
+import { ThemeContextProvider } from "./Context/ThemeContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ContextProvider>
-      <App />
-    </ContextProvider>
+    <CountriesContextProvider>
+      <ThemeContextProvider>
+        <App />
+      </ThemeContextProvider>
+    </CountriesContextProvider>
   </React.StrictMode>
 );

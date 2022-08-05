@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import Context from "../Context/CountriesContext";
 import Country from "./Country";
 import ICountry from "../models/ICountry";
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
+import { useCountriesContext } from "../Context/CountriesContext";
+import Skeleton from "./UI/Skeleton";
 
 const Countries = () => {
-  const { countries, selectedRegion, userInput } = useContext(Context);
+  const { countries, selectedRegion, search } = useCountriesContext();
 
   const displayCountries = countries
     .filter((country: ICountry) => {
@@ -21,8 +21,8 @@ const Countries = () => {
       const { name } = country;
       const lowerCasedCountry = name.toLowerCase();
 
-      if (userInput === "") return country;
-      else if (lowerCasedCountry.includes(userInput)) return country;
+      if (search === "") return country;
+      else if (lowerCasedCountry.includes(search)) return country;
       else return null;
     })
 
@@ -50,7 +50,10 @@ const Countries = () => {
           <SearchBar />
           <Filter />
         </div>
-        <section className="countries__list">{displayCountries}</section>
+        <section className="countries__list">
+          <Skeleton />
+          {displayCountries}
+        </section>
       </div>
     </main>
   );

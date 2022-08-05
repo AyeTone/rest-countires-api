@@ -1,18 +1,38 @@
-import { createContext, ReactNode, useState, useEffect } from "react";
+import {
+  createContext,
+  ReactNode,
+  useState,
+  useEffect,
+  useContext,
+} from "react";
 import ICountry from "../models/ICountry";
 import axios from "axios";
 
-interface Props {
-  children?: ReactNode;
+type CountriesContextProps = {
+  children: ReactNode;
+};
+
+type CountriesContextI = {
+  search: string;
+  selectedRegion: string;
+  countries: ICountry[];
+  showRegions: boolean;
+  changeSelectedRegion: (region: string) => void;
+  updateSearch: (input: string) => void;
+  toggleShowRegions: () => void;
+};
+
+const CountriesContext = createContext({} as CountriesContextI);
+
+export function useCountriesContext() {
+  return useContext(CountriesContext);
 }
 
-const Context = createContext<any | null>(null);
-
-export function ContextProvider({ children }: Props) {
-  const [countries, setCountries] = useState<ICountry[] | []>([]);
+export function CountriesContextProvider({ children }: CountriesContextProps) {
+  const [countries, setCountries] = useState<ICountry[]>([]);
   const [selectedRegion, setSelectedRegion] = useState("Filter by Region");
-  const [userInput, setUserInput] = useState("");
-  const [theme, setTheme] = useState("light");
+  const [showRegions, setShowRegions] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -22,18 +42,32 @@ export function ContextProvider({ children }: Props) {
     fetchData();
   }, []);
 
-  const value = {
+  function toggleShowRegions() {
+    setShowRegions((prev) => !prev);
+  }
+
+  function updateSearch(e: string) {
+    setSearch(e);
+  }
+
+  function changeSelectedRegion(region: string) {
+    setSelectedRegion(region);
+  }
+
+  const values = {
     countries,
     setCountries,
     selectedRegion,
-    setSelectedRegion,
-    userInput,
-    setUserInput,
-    theme,
-    setTheme,
+    changeSelectedRegion,
+    search,
+    updateSearch,
+    showRegions,
+    toggleShowRegions,
   };
 
-  return <Context.Provider value={value}>{children}</Context.Provider>;
+  return (
+    <CountriesContext.Provider value={values}>
+      {children}
+    </CountriesContext.Provider>
+  );
 }
-
-export default Context;

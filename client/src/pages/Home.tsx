@@ -2,7 +2,7 @@ import Countries from "../components/Countries";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home">
       <Countries />
     </div>
   );

@@ -17,6 +17,7 @@
 
 .countries__list {
   width: 100%;
+  overflow: unset !important;
 }
 
 @include breakpoint(tablet) {

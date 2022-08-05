@@ -1,12 +1,21 @@
-import Country from "./Country";
 import ICountry from "../models/ICountry";
+import Country from "./Country";
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
 import { useCountriesContext } from "../Context/CountriesContext";
-import Skeleton from "./UI/Skeleton";
+import Skeletons from "./Skeletons";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Countries = () => {
-  const { countries, selectedRegion, search } = useCountriesContext();
+  const {
+    countries,
+    selectedRegion,
+    search,
+    loading,
+    addMoreCountries,
+    hasMore,
+    sliceAmount,
+  } = useCountriesContext();
 
   const displayCountries = countries
     .filter((country: ICountry) => {
@@ -41,7 +50,7 @@ const Countries = () => {
       );
     })
 
-    .slice(0, 12);
+    .slice(0, sliceAmount);
 
   return (
     <main className="countries">
@@ -50,10 +59,15 @@ const Countries = () => {
           <SearchBar />
           <Filter />
         </div>
-        <section className="countries__list">
-          <Skeleton />
-          {displayCountries}
-        </section>
+        {loading && <Skeletons />}
+        <InfiniteScroll
+          next={addMoreCountries}
+          hasMore={hasMore}
+          dataLength={sliceAmount}
+          loader={<Skeletons />}
+        >
+          <section className="countries__list">{displayCountries}</section>
+        </InfiniteScroll>
       </div>
     </main>
   );

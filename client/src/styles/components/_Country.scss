@@ -6,7 +6,7 @@
   margin: 20px 0;
 
   background-color: white;
-  box-shadow: 4px 0px 20px rgba(128, 128, 128, 0.23);
+  box-shadow: 5px 0px 20px rgba(128, 128, 128, 0.23);
   border-radius: 5px;
 
   cursor: pointer;
@@ -14,7 +14,7 @@
 
 .country__flag {
   width: 100%;
-
+  min-height: 220px;
   object-fit: cover;
   border-radius: 5px;
 }

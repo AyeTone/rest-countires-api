@@ -64,7 +64,7 @@ const Countries = () => {
           next={addMoreCountries}
           hasMore={hasMore}
           dataLength={sliceAmount}
-          loader={<Skeletons />}
+          loader={search ? null : <Skeletons />}
         >
           <section className="countries__list">{displayCountries}</section>
         </InfiniteScroll>
